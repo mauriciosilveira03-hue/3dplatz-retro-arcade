@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b13">
+<title>3D PLATZ | Retro Arcade</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090b13;color:#fff;font-family:Arial,sans-serif}
+header{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #252a39}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px}
+.logo span{color:#00e5a0}
+nav a{color:#aaa;text-decoration:none;margin-left:20px;font-size:14px}
+.hero{padding:75px 7% 55px;background:radial-gradient(ellipse at 80% 20%,#193d48 0%,#111525 40%,#090b13 75%)}
+.tag{color:#00e5a0;font-size:12px;letter-spacing:3px;font-weight:bold}
+h1{font-size:clamp(40px,8vw,76px);line-height:1.05;margin:18px 0}
+h1 span{color:#00e5a0}
+.hero p{color:#a8afc0;max-width:500px;line-height:1.7}
+.btn{display:inline-block;background:#00e5a0;color:#07130f;padding:14px 23px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:15px}
+section{padding:45px 7%}
+.section-title{font-size:27px;margin-bottom:8px}
+.sub{color:#9299a9;font-size:14px;margin-bottom:28px}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.game{background:#151a28;border:1px solid #292f40;border-radius:13px;padding:23px;min-height:190px}
+.game .emoji{font-size:38px}
+.game h3{margin:17px 0 8px}
+.game p{color:#969eaf;font-size:13px;line-height:1.5}
+.status{font-size:11px;color:#00e5a0;letter-spacing:1px}
+.info{background:#111725;border:1px solid #252c3c;border-radius:12px;padding:25px;line-height:1.7;color:#aab2c2}
+footer{text-align:center;padding:35px;color:#71798b;border-top:1px solid #252a39;font-size:12px}
+footer strong{color:#00e5a0}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">3D <span>PLATZ</span></div>
+  <nav><a href="#inicio">Início</a><a href="#jogos">Jogos</a></nav>
+</header>
+
+<main>
+<div class="hero" id="inicio">
+  <div class="tag">RETRO GAMING EXPERIENCE</div>
+  <h1>SUA PORTA PARA<br>O <span>MUNDO RETRO.</span></h1>
+  <p>Reviva os clássicos dos videogames. Uma experiência retrô, simples e feita para jogar onde quiser.</p>
+  <a class="btn" href="#jogos">EXPLORAR JOGOS →</a>
+</div>
+
+<section id="jogos">
+  <div class="tag">NOSSA BIBLIOTECA</div>
+  <h2 class="section-title">Escolha sua aventura</h2>
+  <p class="sub">O universo dos jogos clássicos está chegando.</p>
+
+  <div class="games">
+    <article class="game">
+      <div class="emoji">🎮</div>
+      <h3>Game Boy Advance</h3>
+      <p>Uma coleção de clássicos portáteis.</p>
+      <div class="status">EM PREPARAÇÃO</div>
+    </article>
+    <article class="game">
+      <div class="emoji">👾</div>
+      <h3>Arcade Clássico</h3>
+      <p>Entre no clima dos antigos fliperamas.</p>
+      <div class="status">EM PREPARAÇÃO</div>
+    </article>
+    <article class="game">
+      <div class="emoji">🕹️</div>
+      <h3>Novas aventuras</h3>
+      <p>Mais plataformas e experiências em breve.</p>
+      <div class="status">EM BREVE</div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="info">
+    <strong>✨ A experiência 3D PLATZ está começando!</strong><br>
+    Estamos preparando uma plataforma retrô com acesso fácil, compatibilidade com celulares e recursos para salvar seu progresso.
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong>3D PLATZ</strong> © 2026 — RETRO ARCADE
+</footer>
+</body>
+</html>
