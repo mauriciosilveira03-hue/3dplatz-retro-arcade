@@ -3,25 +3,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D PLATZ - Teste</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D PLATZ ARCADE</title>
+
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
+      padding: 20px;
       background: #080d0a;
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 40px 20px;
-    }
-
-    .box {
-      max-width: 400px;
-      margin: 50px auto;
-      padding: 30px 20px;
-      border: 2px solid #00ff66;
-      border-radius: 18px;
-      background: #111a14;
     }
 
     h1 {
@@ -29,36 +23,111 @@
       font-size: 32px;
     }
 
+    .painel {
+      max-width: 750px;
+      margin: 25px auto;
+      padding: 20px;
+      background: #111a14;
+      border: 1px solid #00ff66;
+      border-radius: 16px;
+    }
+
+    input {
+      width: 100%;
+      margin: 20px 0;
+      padding: 12px;
+      color: white;
+      background: #202820;
+      border-radius: 8px;
+    }
+
     button {
+      padding: 14px 24px;
+      border: 0;
+      border-radius: 8px;
       background: #00ff66;
-      color: #000;
-      border: none;
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-size: 16px;
+      color: black;
       font-weight: bold;
+      font-size: 16px;
+    }
+
+    #game {
+      width: 100%;
+      min-height: 420px;
       margin-top: 20px;
+    }
+
+    .aviso {
+      color: #b8c8bb;
+      font-size: 14px;
     }
   </style>
 </head>
+
 <body>
 
-  <div class="box">
-    <h1>3D PLATZ</h1>
-    <h2>🎮 TESTE DO ARCADE</h2>
-    <p>Se você está vendo esta tela, o arquivo jogo.html está funcionando!</p>
-    <p id="jogo"></p>
-    <button onclick="alert('Tudo funcionando!')">
-      TESTAR JOGO
-    </button>
+  <h1>3D PLATZ</h1>
+  <p>RETRO ARCADE</p>
+
+  <div class="painel">
+    <h2>🎮 GAME BOY ADVANCE</h2>
+
+    <p>Escolha seu arquivo de jogo GBA:</p>
+
+    <input
+      type="file"
+      id="arquivo"
+      accept=".gba,.zip"
+    >
+
+    <p class="aviso" id="mensagem">
+      Selecione um arquivo .gba para começar.
+    </p>
+
+    <div id="game"></div>
   </div>
 
   <script>
-    const parametros = new URLSearchParams(window.location.search);
-    const jogo = parametros.get("game") || "Nenhum jogo selecionado";
+    const arquivo = document.getElementById("arquivo");
+    const mensagem = document.getElementById("mensagem");
 
-    document.getElementById("jogo").textContent =
-      "Jogo selecionado: " + jogo;
+    arquivo.addEventListener("change", function () {
+      const rom = this.files[0];
+
+      if (!rom) return;
+
+      if (!/\.(gba|zip)$/i.test(rom.name)) {
+        mensagem.textContent = "Selecione um arquivo GBA válido.";
+        return;
+      }
+
+      mensagem.textContent = "Carregando " + rom.name + "...";
+
+      const endereco = URL.createObjectURL(rom);
+
+      window.EJS_player = "#game";
+      window.EJS_core = "gba";
+      window.EJS_gameUrl = endereco;
+      window.EJS_gameName = rom.name;
+      window.EJS_pathtodata =
+        "https://cdn.emulatorjs.org/stable/data/";
+      window.EJS_color = "#00ff66";
+
+      const script = document.createElement("script");
+      script.src =
+        "https://cdn.emulatorjs.org/stable/data/loader.js";
+
+      script.onload = function () {
+        mensagem.textContent = "Emulador carregado!";
+      };
+
+      script.onerror = function () {
+        mensagem.textContent =
+          "Erro ao carregar o emulador. Verifique sua internet.";
+      };
+
+      document.body.appendChild(script);
+    });
   </script>
 
 </body>
