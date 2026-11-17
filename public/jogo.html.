@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D PLATZ - Teste</title>
+  <style>
+    body {
+      margin: 0;
+      background: #080d0a;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .box {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 30px 20px;
+      border: 2px solid #00ff66;
+      border-radius: 18px;
+      background: #111a14;
+    }
+
+    h1 {
+      color: #00ff66;
+      font-size: 32px;
+    }
+
+    button {
+      background: #00ff66;
+      color: #000;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>3D PLATZ</h1>
+    <h2>🎮 TESTE DO ARCADE</h2>
+    <p>Se você está vendo esta tela, o arquivo jogo.html está funcionando!</p>
+    <p id="jogo"></p>
+    <button onclick="alert('Tudo funcionando!')">
+      TESTAR JOGO
+    </button>
+  </div>
+
+  <script>
+    const parametros = new URLSearchParams(window.location.search);
+    const jogo = parametros.get("game") || "Nenhum jogo selecionado";
+
+    document.getElementById("jogo").textContent =
+      "Jogo selecionado: " + jogo;
+  </script>
+
+</body>
+</html>
