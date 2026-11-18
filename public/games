@@ -1,5 +1,6 @@
-public/
-  index.html
-  jogo.html
-  games/
-    fire-red.gba
+3dplatz-retro-arcade/
+└── public/
+    ├── index.html
+    ├── jogo.html
+    └── games/
+        └── Pokemon-Fire Red.gba
